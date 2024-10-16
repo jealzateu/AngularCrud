@@ -1,0 +1,19 @@
+<div class="cat-list">
+    <h2>Cat List</h2>
+    <button (click)="createCat()" mat-raised-button color="primary">Create Cat</button>
+    <button (click)="resetCats()" mat-raised-button color="warn">Reset Cats</button>
+    
+    <div class="cat-grid">
+        <div *ngFor="let cat of cats" class="cat-item">
+            <h3>{{ cat.breeds[0].name }}</h3>
+            <img [src]="cat.url" [alt]="cat.breeds[0].name" />
+            <p>ID: {{ cat.id }}</p>
+            <p>Origin: {{ cat.breeds[0].origin }}</p>
+            <p>{{ cat.breeds[0].temperament }}</p>
+            <button (click)="editCat(cat.id)" mat-raised-button color="primary">Edit</button>
+            <button (click)="deleteCat(cat.id)" mat-raised-button color="warn">Delete</button>
+        </div>
+    </div>
+
+</div>
+  

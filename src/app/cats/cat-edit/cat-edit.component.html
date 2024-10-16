@@ -1,0 +1,40 @@
+<div class="cat-edit">
+    <h2>{{ isEditMode ? 'Edit Cat' : 'Create New Cat' }}</h2>
+    <form [formGroup]="catForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Cat Name</mat-label>
+        <input matInput formControlName="name" required />
+        <mat-error *ngIf="catForm.get('name')?.invalid && (catForm.get('name')?.touched || catForm.get('name')?.dirty)">
+          Name is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Image URL</mat-label>
+        <input matInput formControlName="url" required />
+        <mat-error *ngIf="catForm.get('url')?.invalid && (catForm.get('url')?.touched || catForm.get('url')?.dirty)">
+          URL is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Origin</mat-label>
+        <input matInput formControlName="origin" required />
+        <mat-error *ngIf="catForm.get('origin')?.invalid && (catForm.get('origin')?.touched || catForm.get('origin')?.dirty)">
+          Origin is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Temperament</mat-label>
+        <input matInput formControlName="temperament" required />
+        <mat-error *ngIf="catForm.get('temperament')?.invalid && (catForm.get('temperament')?.touched || catForm.get('temperament')?.dirty)">
+          Temperament is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="!catForm.valid">{{ isEditMode ? 'Update Cat' : 'Create Cat' }}</button>
+      <button mat-raised-button color="warn" type="button" (click)="onCancel()">Cancel</button>
+    </form>
+</div>
+  
